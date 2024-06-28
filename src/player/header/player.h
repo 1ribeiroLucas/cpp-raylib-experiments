@@ -22,6 +22,7 @@ class Player
         double magicPoints = 0;
         string job = "Jobless";
         PlayerInfo playerInfo = {0};
+        bool isPlayerSelected = false;
     public:
         // /**
         //  * Várias declarações de construtores diferentes retornam um objeto
@@ -41,9 +42,9 @@ class Player
         
         void drawPlayer();
         void updatePosition(Vector2 newPosition);
-        bool isPlayerClicked(Vector2 clickPosition);
+        void setPlayerDraggableState(Vector2 clickPosition);
 
         string getPlayerName();
         PlayerInfo getPlayerInfo();
-        bool getIsPlayerAlreadyVisible();
+        bool getIsPlayerSelected();
 };

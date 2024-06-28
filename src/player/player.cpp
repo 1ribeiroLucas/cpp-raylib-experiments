@@ -24,20 +24,21 @@ void Player::updatePosition(Vector2 newPosition)
     // drawPlayer(playerInfo.position, playerInfo.size, playerInfo.color);
 }
 
-bool Player::isPlayerClicked(Vector2 clickPosition)
+void Player::setPlayerDraggableState(Vector2 clickPosition)
 {
-    bool isPlayerClicked = false;
-
     if (
         clickPosition.x >= playerInfo.position.x
         && clickPosition.y >= playerInfo.position.y
         && clickPosition.x <= playerInfo.rightEdge
         && clickPosition.y <= playerInfo.bottomEdge)
     {
-        isPlayerClicked = true;
+        isPlayerSelected = true;
+    }
+    else
+    {
+        isPlayerSelected = false;
     }
 
-    return isPlayerClicked;
 }
 
 string Player::getPlayerName()
@@ -48,4 +49,9 @@ string Player::getPlayerName()
 PlayerInfo Player::getPlayerInfo()
 {
     return playerInfo;
+}
+
+bool Player::getIsPlayerSelected()
+{
+    return isPlayerSelected;
 }

@@ -29,21 +29,23 @@ int main()
     while (!WindowShouldClose())
     {
 
-        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+        {
 
             
             // FIXME: Mover o mouse muito rápido enquanto está arrastando
             // algum quadrado solta o quadrado
+            teobaldo.setPlayerDraggableState(GetMousePosition());
 
-            if (teobaldo.isPlayerClicked(GetMousePosition()))
+            if (teobaldo.getIsPlayerSelected()  == true)
             {
                 teobaldo.updatePosition(GetMousePosition());
             }
 
-            if (gertrudes.isPlayerClicked(GetMousePosition()))
-            {
-                gertrudes.updatePosition(GetMousePosition());
-            }
+            // if (gertrudes.isPlayerClicked(GetMousePosition()))
+            // {
+            //     gertrudes.updatePosition(GetMousePosition());
+            // }
         }
 
         BeginDrawing();
